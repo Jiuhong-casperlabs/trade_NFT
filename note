@@ -9,31 +9,31 @@ casper-client put-deploy \
 --secret-key /home/jh/keys/test77/secret_key.pem 
 
 => 
-lock_unlock_cspr_contract
+untransfer_cspr_contract
 hash-4cf8c1d721724c3001b742ea8c51950c83f6fea36d6857820cd801f87d039f01
-lock_unlock_cspr_package
+untransfer_cspr_package
 hash-1724250709e3bc531f14f47c9d99dceb195aab26cd8989518cc429081d4d9d16
 
-=============lock_cspr===========================
+=============transfer_cspr===========================
 
 casper-client put-deploy \
 --chain-name casper-test \
 --node-address http://3.208.91.63:7777 \
 --payment-amount 5000000000 \
---session-path /home/jh/rust/test13/contract/target/wasm32-unknown-unknown/release/lock_cspr.wasm \
+--session-path /home/jh/rust/test13/contract/target/wasm32-unknown-unknown/release/transfer_cspr.wasm \
 --session-arg "amount:U512='100'" \
 --session-arg "bsc_recipient_address:String='"0x2dFe34Af45af8ADcD8b9D8B2a611996fc7C9e64b"'" \
 --session-arg "contract_hash_str:string='contract-4cf8c1d721724c3001b742ea8c51950c83f6fea36d6857820cd801f87d039f01'" \
 --secret-key /home/jh/keys/test1/secret_key.pem 
 
-=============unlock_cspr=========================
+=============untransfer_cspr=========================
 
 casper-client put-deploy \
 --chain-name casper-test \
 --node-address http://3.208.91.63:7777 \
 --payment-amount 5000000000 \
 --session-hash "hash-4cf8c1d721724c3001b742ea8c51950c83f6fea36d6857820cd801f87d039f01" \
---session-entry-point unlock_cspr \
+--session-entry-point untransfer_cspr \
 --session-arg "receipient_publickey:String='0125a6336791eba195c472a8b7dbcd256a6ecddf8863e586a3dfefe2581a5d672c'" \
 --session-arg "bsc_transaction_hash:String='906906906'" \
 --session-arg "amount:U512='2'" \

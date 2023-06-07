@@ -5,7 +5,7 @@ data: {
         "timestamp": "2022-03-13T14:20:14.052Z",
         "ttl": "30m",
         "dependencies": [],
-        "block_hash": "9a040a22d93ebf5a5494e2439da37ea5635c1e8e884154476e4e4642fee05977",
+        "bhash": "9a040a22d93ebf5a5494e2439da37ea5635c1e8e884154476e4e4642fee05977",
         "execution_result": {
             "Success": {
                 "effect": {
@@ -142,10 +142,10 @@ data: {
                                         },
                                         {
                                             "key": "event_type",
-                                            "value": "unlock_cspr"
+                                            "value": "untransfer_cspr"
                                         },
                                         {
-                                            "key": "lock_unlock_cspr_contract",
+                                            "key": "untransfer_cspr_contract",
                                             "value": "contract-dc279d5d9cbd7574729e2a4bc62fc39251da984950c2f463748c11552168163a"
                                         }
                                     ]

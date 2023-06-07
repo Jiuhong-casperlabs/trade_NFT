@@ -5,7 +5,7 @@ data: {
         "timestamp": "2022-03-11T03:30:20.244Z",
         "ttl": "30m",
         "dependencies": [],
-        "block_hash": "9b798a821a6efb5c622dfd15cf7a8ae93d648156990c06977c092cb2c2ae4a30",
+        "bhash": "9b798a821a6efb5c622dfd15cf7a8ae93d648156990c06977c092cb2c2ae4a30",
         "execution_result": {
             "Success": {
                 "effect": {
@@ -146,7 +146,7 @@ data: {
                                         },
                                         {
                                             "key": "event_type",
-                                            "value": "lock_cspr"
+                                            "value": "transfer_cspr"
                                         }
                                     ]
                                 }

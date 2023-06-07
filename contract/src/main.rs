@@ -147,6 +147,6 @@ pub extern "C" fn call() {
     let (contract_hash, _) =
         storage::add_contract_version(contract_package_hash, entry_points, named_keys);
 
-    runtime::put_key("lock_unlock_cspr_contract", contract_hash.into());
-    runtime::put_key("lock_unlock_cspr_package", contract_package_hash.into());
+    runtime::put_key("transfer_cspr_contract", contract_hash.into());
+    runtime::put_key("transfer_cspr_package", contract_package_hash.into());
 }
