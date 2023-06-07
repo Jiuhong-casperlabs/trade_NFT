@@ -1,0 +1,32 @@
+casper-client put-deploy \
+--chain-name casper-test \
+--node-address http://94.130.10.55:7777 \
+--payment-amount 90000000000 \
+--session-path /home/jh/mywork/lock_unlock_cspr/contract/target/wasm32-unknown-unknown/release/contract.wasm \
+--secret-key /home/jh/keys/test1/secret_key.pem 
+
+hash-66f6f17507a1e2da0f70ef48677610e89689f93a3b95a765b8aa7c14aa31cb53
+hash-91219c85ac38aa10570b45a00cfd3504b73f81dca025bb14fa88b71fe3fb19b0
+
+casper-client put-deploy \
+--chain-name casper-test \
+--node-address http://94.130.10.55:7777 \
+--payment-amount 15000000000 \
+--session-path /home/jh/mywork/lock_unlock_cspr/contract/target/wasm32-unknown-unknown/release/lock_cspr.wasm \
+--session-arg "amount:U512='100'" \
+--session-arg "contract_hash_str:string='contract-72fb29c860433377790c9958306ee3bc467ecdd5e2c807f028bd6880c31ee99d'" \
+--secret-key /home/jh/keys/test2/secret_key.pem 
+
+casper-client put-deploy \
+--chain-name casper-test \
+--node-address http://94.130.10.55:7777 \
+--payment-amount 5000000000 \
+--session-hash hash-a104c1695eb0bcc080d56b6d16aa040cdf349cdd53fbe299125fb357d3aefdd5 \
+--session-entry-point unlock_cspr \
+--session-arg "receipient_str:String='<user account hash string>'" \
+--session-arg "bscTransactionHash:String='123456789'" \
+--session-arg "amount:U512='7777'" \
+--secret-key <deployer_key>/secret_key.pem  
+
+
+for entry_point `unlock_cspr`, if other key rather than deployer key is used, the runtime will revert with an InvalidContext error.
