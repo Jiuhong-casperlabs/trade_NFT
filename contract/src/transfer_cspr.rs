@@ -8,27 +8,11 @@ compile_error!("target arch should be wasm32: compile with '--target wasm32-unkn
 // `no_std` environment.
 extern crate alloc;
 
-use alloc::string::String;
-
 use casper_contract::{
     contract_api::{account, runtime, system},
     unwrap_or_revert::UnwrapOrRevert,
 };
 use casper_types::{runtime_args, ApiError, ContractHash, Key, RuntimeArgs, URef, U512};
-
-pub const GROUP_LABEL: &str = "group_label";
-pub const GROUP_UREF_NAME: &str = "group_uref";
-
-#[repr(u16)]
-enum Error {
-    UserInsuffucientbalance = 2,
-}
-
-impl From<Error> for ApiError {
-    fn from(error: Error) -> Self {
-        ApiError::User(error as u16)
-    }
-}
 
 #[no_mangle]
 pub extern "C" fn call() {
