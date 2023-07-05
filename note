@@ -1,3 +1,16 @@
+========deploy cep47 NFT====
+installcep47.js
+                {
+                  "key": "hash-842af5d9424fe20700711facbd30e45d313c26e8981b4ccf38696e36af559d81",
+                  "transform": "WriteContract"
+                },
+                {
+                  "key": "hash-3de5a301a7bd3bacb6d2f6ef70500e2e6c8b49f49e7eb113e4fc14059fb88e3f",
+                  "transform": "WriteContractPackage"
+                },
+
+
+
 =============deploy main contract===========================
 
 casper-client put-deploy \
@@ -5,32 +18,33 @@ casper-client put-deploy \
 --node-address http://localhost:11101 \
 --payment-amount 150000000000 \
 --session-path /home/jh/mywork/transfer_contract/contract/target/wasm32-unknown-unknown/release/contract.wasm \
+--session-arg "nft_contract:Key='hash-842af5d9424fe20700711facbd30e45d313c26e8981b4ccf38696e36af559d81'" \
 --secret-key /home/jh/casper-node/utils/nctl/assets/net-1/users/user-1/secret_key.pem
 
 => 
-{
-    "key": "hash-e34afad1b72169f436b2fe375a3e7d896a0ff090efd4e0fdc9161c41d80a7245",
-    "transform": "WriteContract"
-},
-{
-    "key": "hash-fcaa477ee15ea6991db71bd9bf96198dddc97e2571a6d24045235e815726c76e",
-    "transform": "WriteContractPackage"
-},
-
+    {
+      "key": "hash-3b60b8cda69643d23b94d42993f3568c4d61997a6f0fb2be24aac4c2f62595eb",
+      "transform": "WriteContract"
+    },
+    {
+      "key": "hash-01c64ecd30f10f096817d07fecb57782d89daf7cc18a3aa7cc5362259dd77c1d",
+      "transform": "WriteContractPackage"
+    },
+    
 casper-client get-deploy -n http://localhost:11101 \
-125532291c650ee9019034fb314b9d6fb362d53c3c9cdd7fcabe057e14b59624
+6f956a1446d1954a4f74dda55f1cfe6aba01e25b02a125da9fa975dae4baf65d
 
-=============transfer_cspr===========================
+=============trade_nft===========================
 
 casper-client put-deploy \
 --chain-name casper-net-1 \
 --node-address http://localhost:11101 \
 --payment-amount 50000000000 \
---session-path /home/jh/mywork/transfer_contract/contract/target/wasm32-unknown-unknown/release/transfer_cspr.wasm \
+--session-path /home/jh/mywork/transfer_contract/contract/target/wasm32-unknown-unknown/release/trade_nft.wasm \
 --session-arg "amount:U512='330000000'" \
---session-arg "contract_hash:Key='hash-e34afad1b72169f436b2fe375a3e7d896a0ff090efd4e0fdc9161c41d80a7245'" \
+--session-arg "contract_hash:Key='hash-6bec40ac1681e785196307c711ad0e2ab5934ac984cfacb841142136a3a07c4c'" \
 --session-arg "target:Key='account-hash-7b8f3db6c0e08eb7c083547d6ef7b15c0d3615ef71d54d500b5fec31939ac747'" \
 --secret-key /home/jh/casper-node/utils/nctl/assets/net-1/users/user-1/secret_key.pem
 
 casper-client get-deploy -n http://localhost:11101 \
-328029b986de6a6d4c4704f96614cfe47a11dd586a9092bdda57d1669820b876
+cc7a4a12d26bbbe5c3f86602eee30da7dcc8c640bdf3e2e9a74003721f7f760f

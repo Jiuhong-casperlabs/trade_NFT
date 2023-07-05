@@ -1,5 +1,5 @@
 [package]
-name = "contract"
+name = "my_package"
 version = "0.1.0"
 edition = "2018"
 
@@ -11,14 +11,14 @@ once_cell = { version = "1.16.0", default-features = false }
 
 [[bin]]
 name = "contract"
-path = "src/main.rs"
+path = "bin/contract.rs"
 bench = false
 doctest = false
 test = false
 
 [[bin]]
-name = "transfer_cspr"
-path = "src/transfer_cspr.rs"
+name = "trade_nft"
+path = "bin/trade_nft.rs"
 bench = false
 doctest = false
 test = false
